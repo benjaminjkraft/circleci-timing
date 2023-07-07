@@ -1,7 +1,7 @@
 const { timeout } = require(".")
 
 beforeAll(async () => {
-    await timeout(100) // simulate slow startup
+    await timeout(1000) // simulate slow startup
 })
 
 it("is slow", async () => {
