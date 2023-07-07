@@ -12,6 +12,8 @@ jobs:
           command: npm install --include=dev
       - run:
           name: run tests
+          environment:
+            JEST_JUNIT_ADD_FILE_ATTRIBUTE: "true"
           command: ls ./*.test.js | circleci tests split --split-by=timings --timings-type=filename | xargs npx jest --ci --reporters=default --reporters=jest-junit --
       - run:
           command: mkdir -p ~/junit && cp junit.xml ~/junit/
