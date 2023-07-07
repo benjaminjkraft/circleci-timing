@@ -1,0 +1,21 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/node:current
+    parallelism: 2
+    steps:
+      - checkout
+      - run:
+          name: install
+          command: npm install
+      - run:
+          name: run tests
+          command: circleci tests glob "*.test.js" | circleci tests split --split-by=timings --timings-type=filename | xargs npx jest --reporters=default --reporters=jest-junit
+      - run:
+          command: cp junit.xml ~/junit/
+      - store_test_results:
+          path: ~/junit
+      - store_artifacts:
+          path: ~/junit

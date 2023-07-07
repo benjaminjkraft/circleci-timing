@@ -1,0 +1,12 @@
+{
+  "name": "circleci-timing",
+  "version": "0.0.0",
+  "description": "repro for circleci issue",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.6.1",
+    "jest-junit": "^16.0.0"
+  }
+}
